@@ -106,6 +106,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="20dp"
@@ -139,21 +140,17 @@
 
         </RelativeLayout>
 
-       <!-- <LinearLayout
+        <LinearLayout
+            android:id="@+id/adview"
+            android:layout_below="@id/menus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
-            android:gravity="bottom|center_horizontal">
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical">
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adVieww"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/Admob_banner_id"></com.google.android.gms.ads.AdView>
-        </LinearLayout>-->
+
+        </LinearLayout>
 
 
     </RelativeLayout>

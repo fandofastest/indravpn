@@ -248,11 +248,11 @@ public class Ads {
 
     }
 
-    public  void ShowBannerAds(Context context, LinearLayout mAdViewLayout, String bannerfb, String banneradmob, Display display) {
+    public  void ShowBannerAds(LinearLayout mAdViewLayout, Display display) {
 
 
 
-        adViewfb = new com.facebook.ads.AdView(context, bannerfb, com.facebook.ads.AdSize.BANNER_HEIGHT_50);
+        adViewfb = new com.facebook.ads.AdView(context, fanbanner, com.facebook.ads.AdSize.BANNER_HEIGHT_50);
 
         adViewfb.setAdListener(new com.facebook.ads.AdListener() {
             @Override
@@ -284,7 +284,7 @@ public class Ads {
         AdSize adSize = getAdSize(context,display);
 
         mAdView.setAdSize(adSize);
-        mAdView.setAdUnitId(banneradmob);
+        mAdView.setAdUnitId(admobbanner);
 
         AdRequest.Builder builder = new AdRequest.Builder();
 
@@ -293,7 +293,7 @@ public class Ads {
 
         mAdView.loadAd(builder.build());
 //        mAdViewLayout.addView(mAdView);
-        System.out.println(bannerfb);
+        System.out.println(fanbanner);
         if (Ads.primaryads.equals("admob")){
             mAdViewLayout.addView(mAdView);
 

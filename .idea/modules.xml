@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartVPN.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartVPN.iml" group="SmartVPN" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SmartVPN/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/indravpn.iml" filepath="$PROJECT_DIR$/.idea/modules/indravpn.iml" group="indravpn" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/indravpn-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/indravpn-app.iml" group="indravpn/app" />
     </modules>
   </component>
 </project>
