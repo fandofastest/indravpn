@@ -94,7 +94,10 @@ public class Ads {
                     @Override
                     public void onRewardedAdClosed() {
                         if (!getreward){
-                            hud.dismiss();
+                           if (hud.isShowing()){
+                               hud.dismiss();
+                           }
+
                             listener.onAdsfinish();
                         }
 
@@ -107,7 +110,10 @@ public class Ads {
                         getreward=true;
 
                         listener.onRewardOk();
-                        hud.dismiss();
+                        if (hud.isShowing()){
+                            hud.dismiss();
+                        }
+
 
                         // User earned reward.
                     }
@@ -139,7 +145,10 @@ public class Ads {
             public void onInterstitialDisplayed(Ad ad) {
                 // Interstitial ad displayed callback
                 Log.e(TAG, "Interstitial ad displayed.");
-                hud.dismiss();
+                if (hud.isShowing()){
+                    hud.dismiss();
+                }
+
             }
 
             @Override
@@ -147,7 +156,10 @@ public class Ads {
                 // Interstitial dismissed callback
                 Log.e(TAG, "Interstitial ad dismissed.");
                 listener.onAdsfinish();
-                hud.dismiss();
+                if (hud.isShowing()){
+                    hud.dismiss();
+                }
+
 
 
 
@@ -172,7 +184,10 @@ public class Ads {
                 // Interstitial ad is loaded and ready to be displayed
                 Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
                 // Show the ad
-                hud.dismiss();
+                if (hud.isShowing()){
+                    hud.dismiss();
+                }
+
                 interstitialAd.show();
             }
 
@@ -204,7 +219,10 @@ public class Ads {
             @Override
             public void onAdLoaded() {
                 mInterstitialAd.show();
-                hud.dismiss();
+                if (hud.isShowing()){
+                    hud.dismiss();
+                }
+
                 // Code to be executed when an ad finishes loading.
             }
 
@@ -240,7 +258,10 @@ public class Ads {
             @Override
             public void onAdClosed() {
                 listener.onAdsfinish();
-                hud.dismiss();
+                if (hud.isShowing()){
+                    hud.dismiss();
+                }
+
                 // Code to be executed when the interstitial ad is closed.
             }
         });

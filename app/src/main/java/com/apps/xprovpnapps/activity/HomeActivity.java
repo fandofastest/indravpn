@@ -96,7 +96,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
         setContentView(R.layout.activity_main);
         adviewly=findViewById(R.id.adview);
 
-        Ads ads  = new Ads(getApplicationContext());
+        Ads ads  = new Ads(HomeActivity.this);
         Display display =getWindowManager().getDefaultDisplay();
         ads.ShowBannerAds(adviewly,display);
 
@@ -186,20 +186,8 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
 
                     } else {
 
-                        STATUS = "Connect";
-                        Ads ads = new Ads(HomeActivity.this);
-                        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
-                            @Override
-                            public void onAdsfinish() {
-                                updateUI();
-                                connectToVpn();
-                            }
-
-                            @Override
-                            public void onRewardOk() {
-
-                            }
-                        });
+                        updateUI();
+                        connectToVpn();
 
 
                     }
