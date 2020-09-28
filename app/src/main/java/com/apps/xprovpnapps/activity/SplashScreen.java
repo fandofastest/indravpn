@@ -50,7 +50,7 @@ public class SplashScreen extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Ads ads = new Ads(SplashScreen.this);
+                        Ads ads = new Ads(SplashScreen.this,true);
                         ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
                             @Override
                             public void onAdsfinish() {

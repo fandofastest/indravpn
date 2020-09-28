@@ -96,7 +96,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
         setContentView(R.layout.activity_main);
         adviewly=findViewById(R.id.adview);
 
-        Ads ads  = new Ads(HomeActivity.this);
+        Ads ads  = new Ads(HomeActivity.this,false);
         Display display =getWindowManager().getDefaultDisplay();
         ads.ShowBannerAds(adviewly,display);
 
@@ -167,18 +167,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
                     if (aBoolean) {
                         STATUS = "Disconnect";
 
-                        Ads ads = new Ads(HomeActivity.this);
-                        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
-                            @Override
-                            public void onAdsfinish() {
-                                disconnectAlert();
-                            }
-
-                            @Override
-                            public void onRewardOk() {
-
-                            }
-                        });
+                        disconnectAlert();
 
 
 
@@ -213,7 +202,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
     protected void onStart() {
         super.onStart();
 
-        Ads ads = new Ads(HomeActivity.this);
+        Ads ads = new Ads(HomeActivity.this,true);
         ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
             @Override
             public void onAdsfinish() {
@@ -345,7 +334,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
             public void success(@NonNull Boolean aBoolean) {
                 if (aBoolean) {
                     STATUS = "Disconnect";
-                    Ads ads = new Ads(HomeActivity.this);
+                    Ads ads = new Ads(HomeActivity.this,true);
                     ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
                         @Override
                         public void onAdsfinish() {
@@ -362,7 +351,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
                 } else {
 
                     STATUS = "Connect";
-                    Ads ads = new Ads(HomeActivity.this);
+                    Ads ads = new Ads(HomeActivity.this,true);
                     ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
                         @Override
                         public void onAdsfinish() {

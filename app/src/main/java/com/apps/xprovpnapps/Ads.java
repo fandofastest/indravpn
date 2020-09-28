@@ -50,26 +50,30 @@ public class Ads {
         this.listener = listener;
     }
 
-    public Ads(Context context) {
+    public Ads(Context context,Boolean loadinter) {
 
 
         this.context = context;
 
-        hud = KProgressHUD.create(context)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("Loading")
-                .setCancellable(true)
-                .setDetailsLabel("Please Wait")
-                .setMaxProgress(100)
-                .show();
 
 
-        if (primaryads.equals("admob")){
-            showinteradmob(this.context,admobinter);
+        if (loadinter){
+            hud = KProgressHUD.create(context)
+                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                    .setLabel("Loading")
+                    .setCancellable(true)
+                    .setDetailsLabel("Please Wait")
+                    .setMaxProgress(100)
+                    .show();
+            if (primaryads.equals("admob")){
+                showinteradmob(this.context,admobinter);
+            }
+            else if (primaryads.equals("fan")){
+                showinterfb(this.context,faninter);
+            }
+
         }
-        else if (primaryads.equals("fan")){
-            showinterfb(this.context,faninter);
-        }
+
 
 
 
