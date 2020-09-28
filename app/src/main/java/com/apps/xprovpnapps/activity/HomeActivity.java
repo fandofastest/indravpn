@@ -86,7 +86,7 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
 
     LinearLayout adviewly;
 
-    private String STATUS="Connect";
+    private String STATUS;
 
 
 
@@ -201,26 +201,26 @@ public abstract class HomeActivity extends AppCompatActivity implements Navigati
     @Override
     protected void onStart() {
         super.onStart();
-
-        Ads ads = new Ads(HomeActivity.this,true);
-        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
-            @Override
-            public void onAdsfinish() {
-                if (STATUS.equals("Connect")) {
-                    updateUI();
-                    connectToVpn();
-                    loadAdAgain();
-                } else if (STATUS.equals("Disconnect")) {
-                    disconnectAlert();
-                    loadAdAgain();
-                }
-            }
-
-            @Override
-            public void onRewardOk() {
-
-            }
-        });
+//        STATUS="Connect";
+//        Ads ads = new Ads(HomeActivity.this,true);
+//        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
+//            @Override
+//            public void onAdsfinish() {
+//                if (STATUS.equals("Connect")) {
+//                    updateUI();
+//                    connectToVpn();
+//                    loadAdAgain();
+//                } else if (STATUS.equals("Disconnect")) {
+//                    disconnectAlert();
+//                    loadAdAgain();
+//                }
+//            }
+//
+//            @Override
+//            public void onRewardOk() {
+//
+//            }
+//        });
 
     }
     private void loadAdAgain() {
