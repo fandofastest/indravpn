@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_upgrade"
+            android:icon="@drawable/ic_premium_plan"
+            android:title="Select Country" />
+
+
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_thumb_up_black"
+            android:title="Rate us" />
+
+
+
+    </group>
+
+</menu>

@@ -1,0 +1,95 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
+    }
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+repositories {
+    maven { url 'https://maven.google.com' }
+}
+
+apply plugin: 'com.android.application'
+
+ext {
+    androidSupportLibraryVersion = "28.0.0"
+}
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.apps.xprovpnapps.xpro"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 2
+        versionName "1.0.1"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [onesignal_app_id               : "9ac01b44-f50a-4a72-944d-80e073c8aabe",
+                                onesignal_google_project_number: "REMOTE"]
+        buildConfigField "String", "BASE_HOST", "\"https://backend.northghost.com\""
+        buildConfigField "String", "BASE_CARRIER_ID", "\"afdemo\""
+        buildConfigField "String", "BASE_OAUTH_METHOD", "\"anonymous\""
+
+        buildConfigField "String", "SHARED_PREFS", "\"NORTHGHOST_SHAREDPREFS\""
+        buildConfigField "String", "STORED_HOST_URL_KEY", "\"com.northghost.afvclient.STORED_HOST_KEY\""
+        buildConfigField "String", "STORED_CARRIER_ID_KEY", "\"com.northghost.afvclient.CARRIER_ID_KEY\""
+    }
+    signingConfigs {
+        release {
+
+        }
+    }
+    buildTypes {
+        release {
+            lintOptions {
+                disable 'MissingTranslation'
+                abortOnError false
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.AnchorFreePartner.hydra-sdk-android:sdk:2.4.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.pixplicity.easyprefs:library:1.9.0'
+    def lottieVersion = '3.3.1'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'com.google.android.gms:play-services-ads:19.4.0'
+    implementation 'com.onesignal:OneSignal:3.15.3'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.github.daoibrahim:AdmobAdvancedNativeRecyclerview:1.0.0'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+    implementation 'com.facebook.android:audience-network-sdk:5.11.0'
+    implementation 'com.kaopiz:kprogresshud:1.0.2'
+
+
+}
